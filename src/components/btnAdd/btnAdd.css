@@ -1,0 +1,8 @@
+.container-btn-add{
+    display: flex;
+    justify-content: center;
+}
+.btn-success{
+    width: 35%;
+    border-radius: 10px;
+}

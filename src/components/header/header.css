@@ -1,0 +1,13 @@
+header{
+    height: 100px;
+    background-color: #000000;
+    ;
+    
+}
+header nav ul{
+    display: flex;
+    align-items: center;
+}
+li{
+    list-style: none;
+}

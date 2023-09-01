@@ -5,14 +5,12 @@ import posts from "../api/Posts";
 const ApiContext = createContext();
 
 export const ApiProvider = (props)=>{
-    const {getAllPosts} = posts(ApiUrl)
-    // const{getInfoUser,getPostsUser} = User(ApiUrl)
-    // const{getAllComments} = Comments(ApiUrl)
-    // const{getAlbums} = Albums(ApiUrl)
-
+    const {getAllPosts,deletePost} = posts(ApiUrl)
+    
     const value = useMemo(()=>{
         return({
-            getAllPosts
+            getAllPosts,
+            deletePost
         })
     },[])
 
@@ -24,6 +22,5 @@ export const ApiProvider = (props)=>{
 
 export function useApiContext(){
     const context = useContext(ApiContext)
-
     return context
 }

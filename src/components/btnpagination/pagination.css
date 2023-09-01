@@ -1,0 +1,15 @@
+.pagination{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 30px;
+    margin-top: 20px;
+}
+a{
+    text-decoration: none ;
+}
+.active{
+    background-color: red;
+}
