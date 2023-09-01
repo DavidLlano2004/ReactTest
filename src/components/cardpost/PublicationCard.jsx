@@ -35,7 +35,6 @@ const CardPubli = ()=>{
     const DeleteOnePost = async(id)=>{
         const res = await deletePost(id)
     }
-
     return(
         <>
         <PaginationCards
@@ -45,7 +44,12 @@ const CardPubli = ()=>{
             totalPosts= {totalPosts}
         />
         
-            <BtnAdd/>
+            <BtnAdd
+            setTitle={setTitle}
+            title={title}
+            setBody={setBody}
+            body={body}
+            />
         <div className="container-card">
             {posts.map((post)=>(
                 <div className="card" style={{width:'25rem'}} key={post.id}>

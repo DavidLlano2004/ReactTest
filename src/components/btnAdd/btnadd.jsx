@@ -8,11 +8,12 @@ import { useForm } from "react-hook-form";
 import './btnAdd.css'
 
 
-const BtnAdd = ()=>{
+const BtnAdd = ({setTitle,title,body,setBody})=>{
     const{register,handleSubmit} = useForm()
     const onSubmit = (data)=>{
         console.log(data);
     }
+    
     return(
         <div className="container-btn-add">
             <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -30,12 +31,13 @@ const BtnAdd = ()=>{
                             <form action="" onSubmit={handleSubmit(onSubmit)}>
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Title</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" {...register('title')}/>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" value={title} {...register('title')} onChange={(e)=>setTitle(e.target.value)}/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Message</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" {...register('body')}/>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" {...register('body')} />
                                 </div>
+                                
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     <input type="submit" value="Enviar" class="btn btn-success"/>
