@@ -6,3 +6,9 @@
     width: 35%;
     border-radius: 10px;
 }
+@media (max-width:575px) {
+    
+    .modal-dialog{
+        margin-right: 40px;
+    }
+}

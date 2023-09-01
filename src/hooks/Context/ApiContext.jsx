@@ -5,12 +5,14 @@ import posts from "../api/Posts";
 const ApiContext = createContext();
 
 export const ApiProvider = (props)=>{
-    const {getAllPosts,deletePost} = posts(ApiUrl)
+    const {getAllPosts,deletePost,createPost,editPost} = posts(ApiUrl)
     
     const value = useMemo(()=>{
         return({
             getAllPosts,
-            deletePost
+            deletePost,
+            createPost,
+            editPost
         })
     },[])
 

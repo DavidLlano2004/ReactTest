@@ -6,10 +6,14 @@
     gap: 10px;
     padding: 30px;
     margin-top: 20px;
+    width: 100%;
 }
 a{
     text-decoration: none ;
 }
-.active{
-    background-color: red;
+@media (max-width:576px) {
+    .pagination-list{
+        display: none;
+    }
 }
+

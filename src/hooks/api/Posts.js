@@ -13,10 +13,30 @@ const posts = (url) => {
         }
     }
 
+    const createPost = async()=>{
+        try {
+            const res = await axios.post(apiUrl)
+            console.log('Creando un post' + res);
+            return res
+        } catch{
+            return console.error("Error"); ;
+        }
+    }
+
+    const editPost = async(id)=>{
+        try {
+            const res = await axios.put(`${apiUrl}/${id}`)
+            console.log('Editando un post' + res);
+
+            return res
+        } catch{
+            return console.error("Error"); ;
+        }
+    }
+
     const deletePost = async(id)=>{
         try {
             const res = await axios.delete(`${apiUrl}/${id}`)
-            console.log(res);
             return res
         } catch (error) {
             return console.error("Error");
@@ -25,7 +45,9 @@ const posts = (url) => {
 
     return{
         getAllPosts,
-        deletePost
+        deletePost,
+        createPost,
+        editPost
     }
 
     

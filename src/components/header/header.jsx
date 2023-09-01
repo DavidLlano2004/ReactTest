@@ -4,9 +4,7 @@ const Header = ()=>{
     return(
         <header>
             <nav>
-                <ul>
-                    <li></li>
-                </ul>
+                <img src={require('../../images/iconReact.png')} alt="" />
             </nav>
         </header>
     )
