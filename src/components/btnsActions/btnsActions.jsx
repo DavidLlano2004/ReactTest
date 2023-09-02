@@ -10,13 +10,13 @@ import 'bootstrap/dist/js/bootstrap.bundle.js'
 const ButtonActions = ({deletePost,editPost,idModal})=>{
     return(
         <>
-        <div class="dropdown">
-  <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"><DehazeIcon/></button>
-  <ul class="dropdown-menu">
-    <li><button onClick={editPost} data-bs-toggle="modal" data-bs-target={idModal} ><EditIcon sx={{color:'#0077b6', fontSize:'30px'}}/>Edit</button></li>
-    <li><button onClick={deletePost} ><DeleteIcon sx={{color:'#ef233c', fontSize:'30px'}}/>Delete</button></li>
-  </ul>
-</div>
+      <div className="dropdown">
+        <button className="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"><DehazeIcon/></button>
+        <ul className="dropdown-menu">
+          <li><button onClick={editPost} data-bs-toggle="modal" data-bs-target={idModal} ><EditIcon sx={{color:'#0077b6', fontSize:'30px'}}/>Edit</button></li>
+          <li><button onClick={deletePost} ><DeleteIcon sx={{color:'#ef233c', fontSize:'30px'}}/>Delete</button></li>
+        </ul>
+      </div>
     </>
     )
 }

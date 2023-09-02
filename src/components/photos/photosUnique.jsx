@@ -8,15 +8,15 @@ const CardPhotos = ({photos,setStateId,obtainId})=>{
     return(
         <>
         <div className="container-button-idAlbum">
-            <button type="button" class="btn btn-primary btnReturn" onClick={previoust}><ArrowBackIcon/></button>
+            <button type="button" className="btn btn-primary btnReturn" onClick={previoust}><ArrowBackIcon/></button>
             <h1>Photos Album {obtainId}</h1>
         </div>
         <div className="containerCard-photos">
         {photos.map((photo)=>(
-            <div class="card">
-                <img src={photo.url} class="card-img-top" alt="..."/>
-                <div class="card-body">
-                    <p class="card-text">{photo.title}</p>
+            <div className="card">
+                <img src={photo.url} className="card-img-top" alt="..."/>
+                <div className="card-body">
+                    <p className="card-text">{photo.title}</p>
                 </div>
             </div>
         ))}

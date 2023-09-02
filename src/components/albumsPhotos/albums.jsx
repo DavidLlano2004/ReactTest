@@ -37,11 +37,11 @@ const Photos = ()=>{
                 /> :
                 <div className="cardPhotos-Container">
                 {photosAlbum.map((albums)=>(
-                    <div class="card" key={albums.id}>
-                        <div class="card-body">
+                    <div className="card" key={albums.id}>
+                        <div className="card-body">
                             <h1>Album {albums.id}</h1>
-                            <p class="card-title">{albums.title}</p>
-                                <button  class="btn btn-primary" onClick={()=>getPhotosIdAlbum(albums.id)}>See photos</button>
+                            <p className="card-title">{albums.title}</p>
+                                <button  className="btn btn-primary" onClick={()=>getPhotosIdAlbum(albums.id)}>See photos</button>
                         </div>
                     </div>
                     
