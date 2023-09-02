@@ -3,7 +3,7 @@ import axios from "axios";
 
 const posts = (url) => {
     const apiUrl = `${url}posts`
-
+    // Funcion para la obtencion de todos los posts
     const getAllPosts = async()=>{
         try {
             const res = await axios.get(apiUrl)
@@ -12,6 +12,7 @@ const posts = (url) => {
             return console.error("Error"); ;
         }
     }
+    // Funcion para crear un post
 
     const createPost = async()=>{
         try {
@@ -22,6 +23,7 @@ const posts = (url) => {
             return console.error("Error"); ;
         }
     }
+    // Funcion para editar un post
 
     const editPost = async(id)=>{
         try {
@@ -33,6 +35,7 @@ const posts = (url) => {
             return console.error("Error"); ;
         }
     }
+    // Funcion para borrar un post
 
     const deletePost = async(id)=>{
         try {
@@ -44,10 +47,12 @@ const posts = (url) => {
     }
 
     return{
+        // Retorno las funciones en la funcion padre posts
         getAllPosts,
         deletePost,
         createPost,
         editPost
+
     }
 
     

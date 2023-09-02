@@ -1,9 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
 import 'bootstrap/dist/js/bootstrap.bundle.js'
-
 import './btnAdd.css'
 
 
@@ -12,6 +9,7 @@ const BtnAdd = ({setTitle,titleHead,body,setBody,addPost,register,handleSubmit,o
         <div className="container-btn-add">
             <button onClick={btnAdd} type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Add
+                {/* Icono exportado de material-icons en donde puedo darle propiedas de estilo mediante la propiedad sx */}
                 <AddCircleIcon sx={{color:'#06d6a0', fontSize:'50px'}}/>
             </button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -22,6 +20,7 @@ const BtnAdd = ({setTitle,titleHead,body,setBody,addPost,register,handleSubmit,o
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                            {/* Se mandan props para recibir en el otro componente, así podemos separar funciones */}
                             <form action="" onSubmit={handleSubmit(onSubmit)}>
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Title</label>

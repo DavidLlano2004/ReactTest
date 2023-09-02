@@ -15,7 +15,9 @@ import axios from "axios";
 import ApiUrl from "../../hooks/api/helpers/config";
 
 const CardPubli = ()=>{
-    const{getAllPosts,deletePost,createPost,editPost} = useApiContext()
+    // Uso el apicontext para traer la funciones
+    const{getAllPosts,deletePost,createPost} = useApiContext()
+    // inicializo useStates para cambiar valores a una variable
     const[posts,setPosts] = useState([])
     const[postsPerPage,setPostsPerPage] = useState(6)
     const[currentPage,setCurrentPage] = useState(1)
@@ -27,22 +29,24 @@ const CardPubli = ()=>{
     const{register,handleSubmit} = useForm()
     const [editingPost, setEditingPost] = useState(null);
 
-
+    // Obtengo dinamicamente las posiciones que quiero condicionar al paginar mis post
 
     const LastIndex = currentPage * postsPerPage
     const firstIndex = LastIndex - postsPerPage
+
+    // Obtengo el total de post
     
     const totalPosts = posts.length
-
+    // Muestro los post
     useEffect(()=>{
         AllPosts()
     },[])
-
+    // Hago el consumo de la funcion getAllpost
     const AllPosts = async()=>{
         const res = await getAllPosts()
         setPosts(res)
     }
-
+    // Creo una funcion para abrir el modal dependiendo de si es agreagr o editar
     const openModal = (op,id,title,body)=>{
         setId('')
         setBody('')
@@ -60,22 +64,21 @@ const CardPubli = ()=>{
 
         }
     }
-
+    // Consumo la funcion de createPost
     const createOnePost = async ()=>{
         const res = await createPost()
-        console.log(res);
-    }
-
+        return res
+    }   
+    // Creo una funcion para editar post directamente acá sin trerla de la api para poder mapear los posts
     const editOnePost = async(id,data)=>{
         const res = await axios.put(`${ApiUrl}posts/${id}`,data)
         setPosts(posts.map((post) => (post.id === id ? { ...post, ...data } : post)));
-        console.log(res);
     }
-
+    // Creo un onsubmit para el formulario de hooks form para agregar el objeto en el arreglo
     const onSubmit = (data)=>{
         posts.push(data)
     }
-
+    // Funcion para borrar un post, con su validaciones
     const DeleteOnePost = async(id)=>{
         const res = await deletePost(id)
         const MySwal = withReactContent(Swal)
@@ -95,12 +98,12 @@ const CardPubli = ()=>{
             }
         })
     }
-
+    // Funcion para validar si ha escrito algo en el campo
     const valid = ()=>{
         if(option === 1){
-            if(title.trim() == ''){
+            if(title.trim() === ''){
                 show_alert('Write a title','warning')
-            }else if(body.trim() == ''){
+            }else if(body.trim() === ''){
                 show_alert('Write a message', 'warning')
             }else{
                 const MySwal = withReactContent(Swal)
@@ -119,6 +122,7 @@ const CardPubli = ()=>{
                     }
                 })
             }
+            // Si es opcion dos es la parte de editar, id o parametros que le paso a la funcion
         }else if (option === 2){
             const MySwal = withReactContent(Swal)
                 MySwal.fire({

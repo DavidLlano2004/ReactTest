@@ -3,23 +3,24 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './pagination.css'
 
 const PaginationCards = ({postsPerPage,currentPage,totalPosts,setCurrentPage})=>{
-
+    // Inicializo un arreglo vacio para guardar los resultados de las paginas
     const pageNumbers = []
+    // Obtengo el total de páginas que hay en mi blog y lo divido por el total de post que quiero que muestre
 
     for (let i = 1; i <= Math.ceil(totalPosts/postsPerPage); i++) {
         pageNumbers.push(i)
     }
-
-
+    // Obtento con esta funcion la escucha del click de next page para sumarle 1 a mi variable
     const onNextPage = ()=>{
         setCurrentPage(currentPage+1)
     }
+    // Obtento con esta funcion la escucha del click de on page para restarle 1 a mi variable
 
 
     const onPreviousPage = ()=>{
         setCurrentPage(currentPage-1)
     }
-
+// Aca es para especificar el numero de pagina que quiero que aparezca
     const onSpecificPage = (n)=>{
         setCurrentPage(n)
     }
