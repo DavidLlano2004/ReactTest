@@ -22,8 +22,7 @@ const BtnAdd = ({setTitle,titleHead,body,setBody,totalPost,register,handleSubmit
                         <div className="modal-body">
                             {/* Se mandan props para recibir en el otro componente, así podemos separar funciones */}
                             <form action="" onSubmit={handleSubmit(onSubmit)}>
-                                <input type="text" value={totalPost + 1} {...register('id')}/>
-
+                                <input type="hidden" value={totalPost + 1} {...register('id')}/>
                                 <div className="mb-3">
                                     <label for="exampleFormControlInput1" className="form-label">Title</label>
                                     <input type="text" className="form-control" id="exampleFormControlInput1" value={title} {...register('title')} onChange={(e)=>setTitle(e.target.value)}/>
