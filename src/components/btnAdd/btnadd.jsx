@@ -4,7 +4,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.js'
 import './btnAdd.css'
 
 
-const BtnAdd = ({setTitle,titleHead,body,setBody,addPost,register,handleSubmit,onSubmit,btnAdd,title})=>{
+const BtnAdd = ({setTitle,titleHead,body,setBody,totalPost,register,handleSubmit,onSubmit,btnAdd,title})=>{
     return(
         <div className="container-btn-add">
             <button onClick={btnAdd} type="button" className="btn btn-success"  data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -22,6 +22,8 @@ const BtnAdd = ({setTitle,titleHead,body,setBody,addPost,register,handleSubmit,o
                         <div className="modal-body">
                             {/* Se mandan props para recibir en el otro componente, así podemos separar funciones */}
                             <form action="" onSubmit={handleSubmit(onSubmit)}>
+                                <input type="text" value={totalPost + 1} {...register('id')}/>
+
                                 <div className="mb-3">
                                     <label for="exampleFormControlInput1" className="form-label">Title</label>
                                     <input type="text" className="form-control" id="exampleFormControlInput1" value={title} {...register('title')} onChange={(e)=>setTitle(e.target.value)}/>
@@ -33,7 +35,7 @@ const BtnAdd = ({setTitle,titleHead,body,setBody,addPost,register,handleSubmit,o
                                 
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" id="btnClose" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" value="Enviar" onClick={addPost} className="btn btn-success" >Save</button>
+                                    <button type="submit" value="Enviar"  className="btn btn-success" >Save</button>
                                 </div>
                             </form>
                         </div>

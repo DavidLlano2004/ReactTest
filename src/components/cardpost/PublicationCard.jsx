@@ -76,30 +76,6 @@ const CardPubli = ()=>{
     }
     // Creo un onsubmit para el formulario de hooks form para agregar el objeto en el arreglo
     const onSubmit = (data)=>{
-        posts.push(data)
-    }
-    // Funcion para borrar un post, con su validaciones
-    const DeleteOnePost = async(id)=>{
-        const res = await deletePost(id)
-        const MySwal = withReactContent(Swal)
-        MySwal.fire({
-            title:'Are you sure you want to delete de post?',
-            icon:'question',
-            showCancelButton:true,confirmButtonText:'Yes,delete',cancelButtonText:'Cancel'
-
-        }).then((result)=>{
-            if(result.isConfirmed){
-                const inPost = posts.find((postDelete)=>postDelete.id === id)
-                setPosts(
-                    posts.filter((postDelete)=>postDelete.id !== id)
-                )
-            }else{
-                show_alert('The post was not eliminated')
-            }
-        })
-    }
-    // Funcion para validar si ha escrito algo en el campo
-    const valid = ()=>{
         if(option === 1){
             if(title.trim() === ''){
                 show_alert('Write a title','warning')
@@ -115,6 +91,8 @@ const CardPubli = ()=>{
                 }).then((result)=>{
                     if(result.isConfirmed){
                         createOnePost()
+                        posts.push(data)
+
                         document.getElementById('btnClose').click()
                         show_alert('Post added','success')
                     }else{
@@ -145,7 +123,27 @@ const CardPubli = ()=>{
 
         }
     }
+    // Funcion para borrar un post, con su validaciones
+    const DeleteOnePost = async(id)=>{
+        const res = await deletePost(id)
+        const MySwal = withReactContent(Swal)
+        MySwal.fire({
+            title:'Are you sure you want to delete de post?',
+            icon:'question',
+            showCancelButton:true,confirmButtonText:'Yes,delete',cancelButtonText:'Cancel'
 
+        }).then((result)=>{
+            if(result.isConfirmed){
+                const inPost = posts.find((postDelete)=>postDelete.id === id)
+                setPosts(
+                    posts.filter((postDelete)=>postDelete.id !== id)
+                )
+            }else{
+                show_alert('The post was not eliminated')
+            }
+        })
+    }
+    
     
 
 
@@ -164,8 +162,8 @@ const CardPubli = ()=>{
             title={title}
             setBody={setBody}
             body={body}
+            totalPost={totalPosts}
             btnAdd={()=>openModal(1)}
-            addPost={()=>valid()}
             handleSubmit={handleSubmit}
             onSubmit={onSubmit}
             register={register}
