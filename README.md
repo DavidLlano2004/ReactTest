@@ -1,1 +1,3 @@
 # ReactTest
+Se usa el comando npx create-react-app reacttest,como otras dependencias como. React router dom, react hooks form, material ui & icons. Para la parte del diseño se usa el frameWork de bulma y boostrap.
+Es un proyecto donde la funcionalidad se basa en consumir una API, así trayendo una información, donde puedo eliminar, editar y agregar post de forma fake a la API. En su vista de albumnes, se trae cada uno y con esta funcionalidad puedo ver las fotos de cada albumn que escoja.
